@@ -1,0 +1,14 @@
+robocopy is built in starting win vista
+robocopy <source> <destination> [files] [options]
+/MIR		mirror						copy & delete
+/FFT		FAT File system Timing		more accurate timing prediction across network
+/Z			reZumable					able to resume copy mid-file
+/W:5		wait retry 5 seconds		retry time between failures (instead of 30 seconds default)
+/E			sub and Empty folders		copy subdirectories and empty directories
+/XF [file]	eXclude File				excludes a file (*.ini) (desktop.ini)
+/XD [dir]	eXclude Directory			excludes a directory (.*)
+/ETA		gives ETA of copy			ETA
+/MON:5		MONitor source, 5 changes	monitor source, run again when 5 changes seen
+
+typical use
+robocopy \\old-comp\C$\Users\Potato\Desktop C:\users\Potato\Desktop /MIR /FFT /Z /W:5 /E /XF desktop.ini
