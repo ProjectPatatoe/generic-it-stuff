@@ -1,0 +1,39 @@
+WORK IN PROGRESS
+all SUPER old info, probably ignore all of it.
+
+
+========== SSSD/realmd method (more manual) (not tested)
+http://www.wolffhaven45.com/blog/linux/join_ubuntu_workstation_windows_domain/#9
+
+
+
+
+
+
+==========PBIS Open method (auto) (joins but no account?)
+note: school uses PBIS for mac computers
+====add pbis to computer
+Source: http://repo.pbis.beyondtrust.com/apt.html
+
+wget -O - http://repo.pbis.beyondtrust.com/yum/RPM-GPG-KEY-pbis|sudo apt-key add -
+sudo wget -O /etc/apt/sources.list.d/pbiso.list http://repo.pbis.beyondtrust.com/apt/pbiso.list
+sudo apt update 
+sudo apt install pbis-open
+
+====join domain
+sudo pbis join ad.server.whatever <adminuser>
+
+====setup login screen (lightdm)
+sudo nano /usr/share/lightdm/lightdm.conf.d/50-unity-greeter.conf
+add:
+allow-guest=false
+greeter-show-manual-login=true
+
+====hide an account from login screen
+sudo nano /var/lib/AccountsService/users/nameofaccount
+change:
+[User]
+SystemAccount=false
+To:
+[User]
+SystemAccount=true

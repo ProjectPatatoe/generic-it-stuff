@@ -1,0 +1,38 @@
+login using AD credentials
+
+=== general info ===
+* successor to Nagios (compatible with its plugins for the most part)
+* it can receiving status as well as fetching status
+* currently set up to fetch alot of status
+
+=== most useful use cases ===
+* checking the history of online/offline to see patterns
+* general snapshot of things
+* who is online/offline
+
+
+=== Usage ===
+==Add a computer==
+1. Icinga Director
+2. Host objects
+3. Hosts
+4. Add
+5. Choose a template
+	for regular computer - basic-desktop
+	for ping only (online/offline) basic-host
+6. Enter Hostname
+7. fill out information on bottom
+	WMI checks -	CPU usage
+					Event Log Application
+					Event Log System
+					Free Disk Space
+8. 'Add'
+(repeat 4-8 for more systems)
+
+==Apply config==
+1. Icinga Director
+2. Activity Log
+3. Deploy x pending changes
+
+maintenance:
+	

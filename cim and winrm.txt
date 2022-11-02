@@ -1,0 +1,8 @@
+updated stuff for remote windows stuff
+WMI is deprecated and CIM is the replacement?
+
+get info
+	get-ciminstance -computername computer-name win32_bios
+
+remote powershell
+	new-pssession -computername computer-name

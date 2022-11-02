@@ -1,0 +1,15 @@
+https://www.itechtics.com/download-windows-10-enterprise-iso/
+
+"Download tool now"
+https://www.microsoft.com/en-us/software-download/windows10
+direct link as of 10/4/2021
+https://go.microsoft.com/fwlink/?LinkId=691209
+
+for keys if the tool asks
+https://docs.microsoft.com/en-us/windows-server/get-started/kmsclientkeys
+Windows 10 Pro 						W269N-WFGWX-YVC9B-4J6C9-T83GX
+Windows 10 Pro for Workstations 	NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J
+Windows 10 Enterprise				NPPR9-FWDCX-D2C8J-H872K-2YT43
+
+mediacreationtool1909.exe /Eula Accept /Retail /MediaArch x64 /MediaLangCode en-US /MediaEdition Enterprise
+

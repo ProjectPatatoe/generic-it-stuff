@@ -1,0 +1,99 @@
+login using ssh
+	PuTTY works great
+		https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+
+for anything...
+show the manual for a command
+	man <command>
+	ex: man shutdown
+Close/quit
+	CTRL+C
+logout
+	exit
+	
+autocomplete command
+	Press TAB while typing a command, will autocomplete if it can
+	if multiple matches, press 2 times to display list of possibilities
+
+==== for ubuntu generic server ====
+notes:
+running ubuntu LTS (Long Term Support)
+
+TLDR;
+General maintenance.
+	sudo apt update
+	sudo apt upgrade
+	sudo reboot
+
+
+
+using PPA for apache2 to stay more up to date
+	sudo add-apt-repository ppa:ondrej/apache2
+	(may have to add again after every major os upgrade)
+
+I also left notes inside the home directory for things that generally need to be done once in a while
+
+because icinga is actually really intensive after reboot (because it wants to ping everybody)
+It may be "frozen" after a reboot or if there is no network
+Either, log in and stop icinga asap after a reboot
+	sudo service icinga2 stop
+OR
+Wait a really long time for icinga to give up pinging everybody
+
+=== services ===
+sudo service <service> <command>
+	most services have
+		stop
+		start
+		status
+		restart
+		reload
+common services
+	apache2
+		web server
+	icinga2
+	
+=== navigation ===
+cd
+
+list files
+	ls
+list files + details (same as ls -la)
+	ll
+=== permissions ===
+https://en.wikipedia.org/wiki/File_system_permissions#Traditional_Unix_permissions
+switch user
+	su
+switch user DO
+	do something as root
+		sudo <command>
+	do something as another user
+		sudo -u <person> <command>
+
+=== Task Manager ===
+htop
+	this can view
+sudo htop
+	this lets you be able to kill things
+=== Running updates ===
+package manager
+	apt
+refresh list of packages
+	sudo apt update
+update/upgrade all packages
+	sudo apt upgrade
+install packages
+	sudo apt install <package>
+uninstall package
+	sudo apt remove <package>
+uninstall and remove config files of package
+	sudo apt purge <package>
+=== power/reboot ===
+command to do power related stuff
+	shutdown
+reboot now
+	sudo shutdown -r now
+reboot 4am
+	sudo shutdown -r 04:00
+shut off now
+	sudo shutdown -P now

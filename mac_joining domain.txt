@@ -1,0 +1,3 @@
+CHECK create mobile login, this allows you to login while disconnected... sorta unreliable
+dont pre-create computer in OU
+do have OU path ex: OU=computer dir,OU=Computers,DC=ad,DC=place,DC=com

@@ -1,0 +1,35 @@
+X11 subsystem forwarding
+
+Use for:
+	viewing GUI windows across the network like PuTTY or SSH where remote system has X11.
+
+Connecting from Linux:
+	If you have a desktop, x11 is most likely installed! easy.
+	ssh:
+		add the "-X" flag
+	PuTTY:
+		Connection->SSH->X11. check checkbox "Enable X11 forwarding"
+
+Connecting from Windows:
+	Install/setup Cygwin-X:
+		Install cygwin/x (http://x.cygwin.com/) (Direct: http://cygwin.com/setup-x86_64.exe)
+			Note: Xming is alot easier, but not free anymore. Free version = out of date (2007 & 32bit only).
+		Install the "xinit" package
+		open "C:\cygwin64\bin\startxwin" in notepad++
+			Add "-multiwindow -listen tcp" to "defaultserverargs"
+		Notes:
+			https://x.cygwin.com/docs/man1/XWin.1.html
+			https://x.cygwin.com/docs/man1/Xserver.1.html
+			
+	Start windows X server:
+		Start "XWin Server" (its in startmenu under Cygwin-X)
+			cygwin/x is now ready (:
+	
+	Setup PuTTY:
+		Connection->SSH->X11
+			check checkbox "Enable X11 forwarding"
+			X display location
+				:0.0
+			X authority file for local display -> Browse...
+				"C:\cygwin64\home\<your username>\.Xauthority"
+		Note: you can save these options!

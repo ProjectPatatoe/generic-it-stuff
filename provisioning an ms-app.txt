@@ -1,0 +1,8 @@
+https://docs.microsoft.com/en-us/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps
+
+https://docs.microsoft.com/en-us/windows/application-management/apps-in-windows-10
+
+get-appxprovisionedpackage -online | select packagename
+
+remove-appxprovisionedpackage -online -packagename blahblah.123123_1sdklfjlk
+

@@ -1,0 +1,30 @@
+Install / update
+
+========== Update ==========
+-----icinga-----
+this will update icinga and icingaweb
+  sudo apt update
+  sudo apt upgrade
+-----check_wmi_plus-----
+https://edcint.co.nz/checkwmiplus/
+use filezilla and connect via sftp to upload files
+copy files (not etc) to /usr/local/bin
+  sudo cp <filename> /usr/local/bin/
+-----icingaweb incubator-----
+already installed, update via git
+  cd /usr/share/icingaweb2/modules/incubator
+  sudo git fetch
+see what latest tag is/was
+use the following to view if missed/already fetched
+  git tag
+do update to latest tag
+  sudo git checkout v0.6.0
+-----icingaweb director-----
+already installed, update via git
+  cd /usr/share/icingaweb2/modules/director
+  sudo git fetch
+see what latest tag is/was
+use the following to view if missed/already fetched
+  git tag
+do update to latest tag
+  sudo git checkout v1.8.1
