@@ -1,12 +1,13 @@
 Slipstreaming a new windows image for installation
+Ask: Patrick B.
 
 Use for:
 	integrating...
 		windows updates
 		drivers
-		software(WIP)
-		slimming down an already existing image(WIP)
-		automated installs(WIP)
+		software(guide-WIP)
+		slimming down an already existing image(guide-WIP)
+		automated installs(guide-WIP)
 		changing some default services, settings, etc.
 		unattended installs
 
@@ -19,18 +20,18 @@ Things to know first:
 WIM - Windows Image....Media?, it is hte actual windows image similar to an "iso" in a sense or a ghost image
 boot.wim - the "windows install screen" version of windows. technically WinPE.
 install.wim - the actual INSTALLED windows. It mostly just extracts this onto the HDD and then does setup
+*.msu - MS update, can open with 7zip to get .cab out of it if needed
+*.cab - cabinet file. basically a zip. used pretty much by just windows
 
 **ALWAYS!!!
 work from an "original" image, don't just keep updating an already updated image, the image size will keep growing and become unstable
+Often, just get a new windows ISO because they do update the install disc itself also.
 
 
 ======================================================================
                                win 10
 ======================================================================
-this is WIP, doing from scratch
 notes:
-A. extract, ntlite slip (mount do everything, repack but no iso), dism (mount wim, cleanup), ntlite (mount, repack, create iso)
-	seems to create the smallest iso
 
 ---my setup
 c:\w10_extract		extracted windows iso
@@ -44,8 +45,26 @@ quick simple version
 1.	extract iso
 2.	load with ntlite
 3.	make changes and add updates
-4.	save to iso
-5.	use rufus to image iso to usb
+4.  Save, not ISO
+5.	set autoattend.xml in folder
+     - decide on autounattend.xml audit mode or done.
+     - No software to preinstall? use regular autounattend.xml
+6.  create ISO with ntlite
+     - if no software, then you are done! use rufus to image iso to usb
+7.  install in Virtualbox (mbr is fine)
+.  snapshot vbox
+8.  boot into audit mode
+.  install software
+.  remove appx non-provision packages (just adobe probably)
+.  dism reset base
+.  snapshot vbox
+.  generalize and shutdown
+.  snapshot vbox
+.  add a 'flashdrive' either vhd or real flashdrive
+.  boot into winpe and use diskpart to check drive letters
+.  capture image then shutdown
+.  extract .wim to replace the install.wim. keep the updated .wim someplace incase you need to redo applications
+.  create iso and test!
 
 Get windows updates from  (for 1607)
 https://support.microsoft.com/en-us/help/4000825
@@ -65,7 +84,10 @@ if really want to get rid of the missing device driver, -drvonly, or -? for list
 ==================================================================================
                   Capturing an image (more of notes rather than guide atm)
 ==================================================================================
-Reccomended to do this in a VM like virtualbox (version 30 cuz performance issues in 31+)
+Reccomended to do this in a VM like virtualbox
+These may need to be run in Admin-CMD to fix Virtualbox/windows security stuff
+    dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
+    bcdedit /set hypervisorlaunchtype off
 VM also means less driver installs to do / pollute the image
 
 enter audit mode via autounattend install file or key combo

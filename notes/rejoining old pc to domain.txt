@@ -1,0 +1,5 @@
+for a system that was on domain but hte computer credential is out of sync:
+it also doesn't need a reboot! a way to rejoin without reboot
+
+in elevated powershell
+Reset-ComputerMachinePassword -Credential (Get-Credential)

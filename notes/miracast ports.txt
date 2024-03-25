@@ -1,0 +1,5 @@
+Inbound rule 1: "Surface Hub Miracast - TCP" : local ports 7236, 7250, 50000; Profile: Public; Program and service: %SystemRoot%\System32\WUDFHost.exe
+
+Inbound rule 2: "Surface Hub Miracast - UDP" : local ports 5353; Profile: Public; Program and service: %SystemRoot%\System32\WUDFHost.exe
+
+https://learn.microsoft.com/en-us/archive/msdn-technet-forums/c929e4e7-45f0-45bd-9693-101047acfc42#all-replies-4
